@@ -7,8 +7,77 @@
     <title>Employee Management System</title>
 </head>
 <body>
+    <!-- Heading -->
+    <h1>Employee Management System</h1>
     <!-- root container -->
-    <div id="root"></div>
+    <div id="root">
+          <!-- filtering and sorting section -->
+          <div id="topPart">
+            <!-- filter based on department -->
+            <label for="departments">
+                Filter by Department:
+                <select id="departments">
+                    <option value="">Select Department</option>
+                    <option value="all">All the Departments</option>
+                    <option value="hr">hr</option>
+                    <option value="finance">finance</option>
+                    <option value="marketing">marketing</option>
+                    <option value="engineering">engineering</option>
+                    <option value="operations">operations</option>
+                </select>
+            </label>
+            <!-- filter based on gender -->
+            <label for="gender">
+                Filter by Gender:
+                <select id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="all">All the genders</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="others">others</option>
+                </select>
+            </label>
+            <!-- Sorting based on salary -->
+            <label for="salarySort">
+                Sort by salary:
+                <select id="salarySort">
+                    <option value="">Sort by order</option>
+                    <option value="desc">High to low</option>
+                    <option value="asc">Low to High</option>
+                </select>
+            </label>
+          </div>
+<!-- ----------------Top section ends----------------- -->
+
+            <!-- Table root container -->
+            <div id="tabelRoot">
+                <!-- Table starts -->
+               <table>
+                <!-- Table head starts -->
+                 <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>salary</th>
+                    </tr>
+                 </thead>
+                 <!-- Table head Ends -->
+                <!-- Table body starts -->
+                <tbody id="tbody">
+
+                </tbody>
+                <!-- Table body starts -->
+               </table>
+                 <!-- Table starts -->
+            </div>
+    </div>
+    <!-- pagination buttons -->
+    <div id="pagination">
+       <button id="Previous">Previous</button>
+       <button id="Next" >Next</button>
+    </div>
 </body>
 <script src="./main.js"></script>
 </html>
