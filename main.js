@@ -18,13 +18,50 @@ empGender.addEventListener("change",filterByGender);
 empSalary.addEventListener("change",findSortValue);
 
 // adding eventListeners to previous and next buttons:
-previousBtn.addEventListener("click",)
+previousBtn.addEventListener("click",function(){
+    // console.log("prev");
+    page--;
+    handlePrevious(page)
+   
+})
 
-nextBtn.addEventListener("click",)
+nextBtn.addEventListener("click",function() {
+    page++;
+    handleNext(page);
+})
 
 // function to Previous button:
+async function handlePrevious(pageNo) {
+    if(pageNo === 1) {
+        previousBtn.disabled = true;
+    }else if(pageNo < 10 ){
+        nextBtn.disabled = false;
+    }
+        try {
+            let res = await getData(`${API_URL_FOR_PAGINATION}?page=${pageNo}&limit=10`);
+            // console.log(res.data);
+            displayData(res.data);
+           } catch (error) {
+            console.log(error);
+           }
+}
 
 // function to Next button:
+async function handleNext(pageNo) {
+    // console.log(pageNo);
+    if(pageNo === 10) {
+        nextBtn.disabled = true;
+    }else if(pageNo > 1){
+        previousBtn.disabled = false;
+    }
+        try {
+            let res = await getData(`${API_URL_FOR_PAGINATION}?page=${pageNo}&limit=10`);
+            // console.log(res.data);
+            displayData(res.data)
+           } catch (error) {
+            console.log(error);
+           }
+}
 
 // Invocking the init function:
 init();
